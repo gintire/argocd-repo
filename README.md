@@ -1,8 +1,13 @@
 # Argocd-exmaple-repo
 This is where I practice argocd for GitOps. If you want to know official test code, refer to official websites below
 
-> [Official ArgoCD repo](https://github.com/argoproj/argo-cd)    
+> [Official ArgoCD Github repo](https://github.com/argoproj/argo-cd)    
 > [Official ArgoCD web site](https://argo-cd.readthedocs.io/en/latest/)
+
+## Used project
+ArgoCD Sample project : Guestbook
+* image : gcr.io/heptio-images/ks-guestbook-demo:0.2
+* ex) Children of official Github examples (https://github.com/argoproj/argo-cd/tree/master/applicationset/examples)
 
 ## List
 * ApplicationSet
