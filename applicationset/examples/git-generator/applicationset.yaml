@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: git-generator
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/gintire/argocd-example-repo
+      revision: main
+      files:
+      - path: "applicationset/examples/git-generator/cluster-config/**/config.json"
+  template:
+    metadata:
+      name: '{{cluster.name}}-generator'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+      source:
+        repoURL: https://github.com/gintire/argocd-example-repo
+        targetRevision: main
+        path: applicationset/examples/git-generator/charts/{{cluster.overlay}}/kustomize-guestbook
+      destination:
+        name: '{{cluster.name}}'
+        namespace: default
