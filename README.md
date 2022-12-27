@@ -8,6 +8,16 @@ This is where I practice argocd for GitOps. If you want to know official test co
 * ApplicationSet
 
 ## ArgoCD version
+When install ArgoCD over v2.3, there is issue with argo-repo-controller about GPG. [refer](https://github.com/argoproj/argo-cd/issues/11818)
+
+> Fix the GPG problem with following in helm values.yml file:
+```repoServer:
+   containerSecurityContext:
+     seccompProfile:
+       type: Unconfined
+```
+
+
 ```
 argocd: v2.5.0+b895da4
   BuildDate: 2022-10-25T15:01:45Z
