@@ -9,9 +9,9 @@ spec:
       - cluster: engineering-dev
         url: <CLUSTER_URL>
         name: engineering-dev
-      - cluster: engineering-staging
+      - cluster: engineering-prod
         url: <CLUSTER_URL>
-        name: engineering-staging
+        name: engineering-prod
   template:
     metadata:
       name: '{{cluster}}-guestbook'
@@ -22,5 +22,5 @@ spec:
         targetRevision: HEAD
         path: applicationset/examples/list-generator/guestbook/{{cluster}}
       destination:
-        server: '{{name}}'
+        name: '{{name}}'
         namespace: guestbook
